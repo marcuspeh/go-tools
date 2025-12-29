@@ -1,4 +1,4 @@
-module github.com/marcuspeh/go_tools
+module github.com/marcuspeh/go-tools
 
 go 1.23.2
 
