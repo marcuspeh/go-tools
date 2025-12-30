@@ -1,4 +1,4 @@
-package tools
+package util
 
 func ForEach[T any](inputSlice []T, fn func(value T, idx int)) {
 	for idx, value := range inputSlice {

@@ -1,4 +1,4 @@
-package tools
+package util
 
 func Ptr[T any](t T) *T {
 	temp := t
