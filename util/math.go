@@ -41,7 +41,11 @@ func Sum(data []float64) float64 {
 
 func Max[T cmp.Ordered](values ...T) T {
 	var maxValue T
-	for _, v := range values {
+	if len(values) == 0 {
+		return maxValue
+	}
+	maxValue = values[0]
+	for _, v := range values[1:] {
 		if v > maxValue {
 			maxValue = v
 		}
@@ -52,7 +56,11 @@ func Max[T cmp.Ordered](values ...T) T {
 
 func Min[T cmp.Ordered](values ...T) T {
 	var minValue T
-	for _, v := range values {
+	if len(values) == 0 {
+		return minValue
+	}
+	minValue = values[0]
+	for _, v := range values[1:] {
 		if v < minValue {
 			minValue = v
 		}

@@ -25,8 +25,8 @@ func NewErrGroup() ErrGroup {
 func (m *ErrGroupImpl) Run(ctx context.Context, fn func() error) {
 	m.grp.Go(func() (err error) {
 		defer func() {
-			if err := recover(); err != nil {
-				err = fmt.Errorf("panic occured %v", err)
+			if r := recover(); r != nil {
+				err = fmt.Errorf("panic occured %v", r)
 			}
 		}()
 

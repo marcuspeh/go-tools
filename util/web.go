@@ -30,6 +30,7 @@ func GetRequest[reqStruct, respStruct any](url string, req *reqStruct) (*respStr
 	resp, err := client.R().
 		SetQueryParams(params).
 		SetResult(&respModel).
+		ForceContentType("application/json").
 		Get(url)
 	if err != nil {
 		return nil, err
@@ -47,6 +48,7 @@ func PostRequest[reqStruct, respStruct any](url string, req *reqStruct) (*respSt
 	resp, err := client.R().
 		SetBody(req).
 		SetResult(&respModel).
+		ForceContentType("application/json").
 		Post(url)
 	if err != nil {
 		return nil, err
@@ -64,6 +66,7 @@ func DeleteRequest[reqStruct, respStruct any](url string, req *reqStruct) (*resp
 	resp, err := client.R().
 		SetBody(req).
 		SetResult(&respModel).
+		ForceContentType("application/json").
 		Delete(url)
 	if err != nil {
 		return nil, err
